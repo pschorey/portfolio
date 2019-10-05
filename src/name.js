@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Nav from './nav';
 import pauly from './img/pauly.gif';
 import guitar from './img/guitar.jpg'
 
@@ -9,14 +10,7 @@ const NameDiv = styled.div`
 	flex-direction:column;
 	text-align:center;
 	background-color:gray;
-
-	/*height:300px;*/
-	height: 430px;
-	@media(max-width: 975px) {
-		height:550px;
-	}
-
-
+	position:relative;
 `
 const DevName = styled.h1`
 	line-height:80px;
@@ -24,6 +18,8 @@ const DevName = styled.h1`
 	font-family:"Lucida Console", Monaco, monospace;
 	color: pink;
 	margin:0px;
+	padding-top:60px;
+		
 	@media(max-width: 700px) {
 		font-size: 70px;
 	}
@@ -40,6 +36,8 @@ const DevName = styled.h1`
 		height:316px;
 	}
 `
+
+/*
 const Button = styled.button`
 	align-self:center;
 	margin-top:10px;
@@ -52,6 +50,7 @@ const Button = styled.button`
     	cursor: pointer;
   	}
 `
+*/
 
 const Img = styled.img`
 	margin:15px 0;
@@ -68,7 +67,8 @@ const PaulyImg = styled(Img)`
 `
 
 const GuitarImg = styled(Img)`
-
+	position:absolute;
+	bottom:20px;
 `
 
 
@@ -77,24 +77,38 @@ export default class Name extends React.Component {
   		super(props);
     	this.state = {
       		text: 'PMS',
+      		height: 0,
       		disabled: false,
-      		buttonVis: false,
+      		/*buttonVis: false,*/
       		style: {color: 'black'},
       		showMe: true
     	};
+    	this.updateDimensions = this.updateDimensions.bind(this)
     	this.animateName = this.animateName.bind(this);
-    	//this.notPaullyShore = this.notPaullyShore.bind(this);
+    	/*this.notPaullyShore = this.notPaullyShore.bind(this);*/
+  	}
+
+  	updateDimensions () {
+  		let height = window.innerHeight;  //-60 for nav height if removing absolute pos.
+  		height = height < 600 ? 601 : height; //549
+  		this.setState({height: height});
   	}
 
     componentDidMount() {
+    	window.addEventListener('resize', this.updateDimensions);
+	    this.updateDimensions();
         setTimeout( () => {
       		this.animateName()
     	}, 2500);
     }
 
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateDimensions);
+	}
+
 	animateName () {
 		this.setState({disabled: true})
-		this.setState({buttonVis: false})
+		/*this.setState({buttonVis: false})*/
 	    let startChain = () => {
 		    let stringName = 'Paul Matthew Schorey';
 		    let tempString = '';
@@ -112,7 +126,7 @@ export default class Name extends React.Component {
 		          }
 		          if (i > 3 && i < 10) {
 		            tempMid += stringName[i + 2]
-		            if (stringName[i+2] == 'w') {
+		            if (stringName[i+2] === 'w') {
 		            }
 		          }
 		          if (i > 9 && i < 16) {
@@ -135,13 +149,13 @@ export default class Name extends React.Component {
 		    startChain();
 		}
 	}
-/*
+
 
 	//My wife said that aside from pointing out my unfortunate initials, alluding to
 	//my unfortunate middle school years corresponding with the hight of Pauly Shore's carrer
 	//nobody would get the humor in it.....well I know someone who would:
 	// https://www.youtube.com/watch?v=_BaMx_n2_hM
-
+	/*
 	notPaullyShore () {
 	    this.setState({style: {color: 'pink'}})
 	    this.setState({text: 'Not to be confused with...'})
@@ -165,15 +179,17 @@ export default class Name extends React.Component {
 	  	}
 	  	setTimeout(paulSchorey, 4000)
 	}
-*/
+	*/
   render() {
     	return (
-			<NameDiv id='welcome-section'>
+			<NameDiv id='welcome-section' style={{height:this.state.height}}>
+				<Nav />
 				<DevName style={this.state.style}>{this.state.text} </DevName>
 				{/*
 					//...Uncomment to add the refresh button again
 					{this.state.buttonVis && <Button disabled={this.state.disabled} onClick={this.animateName}>Again?</Button>}
-				*/}
+				*/
+				}
 				{this.state.showMe ? <GuitarImg src={guitar} /> : <PaulyImg src={pauly} />}
 			</NameDiv>
     	);

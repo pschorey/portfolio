@@ -1,20 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//https://apps.apple.com/us/developer/tamber-schorey/id1434244996
+//https://play.google.com/store/apps/developer?id=Paul+Schorey
 
 
 const MyNav = styled.nav `
+	z-index:1;
+	position:fixed;
+	right: 10px;
 	display: flex;
 	align-self: stretch;
-	/*align-items: center;*/
 	justify-content: flex-end;
 	height: 60px;
 	line-height:60px;
-	background-color:gray;
+	background-color:transparent;
+
+	/*iPad portrait and smaller center nav links*/
+	@media(max-width: 768px) {
+		justify-content: center;
+		right: calc(50% - 186px)
+	}
+`
+const CollapsedMenu = styled.nav`
+	z-index:1;
+	position:fixed;
+	width:100%;
+	height: 60px;
+	line-height:60px;
+	background-color:transparent;
 `
 
 const InlineMenu = styled.div`
+
 	display: inline-flex;
+	align-self:stretch;
 `
 
 const NavLink = styled.div`
@@ -24,7 +44,7 @@ const NavLink = styled.div`
 	margin:5px 10px;
 	border:solid 2px white;
 	border-radius: 8px / 20px;
-
+	background-color: gray;
 	:hover {
 		background-color:gray;
 		border-color:black;
@@ -48,16 +68,14 @@ export default class Nav extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-    		width: 371
+    		width: 371,
     	};
 		this.updateDimensions = this.updateDimensions.bind(this);
   	}
 
   	updateDimensions () {
-  		//console.log('width = ' + window.innerWidth)
   		let width = window.innerWidth;
   		this.setState({width: width});
-  		console.log(width);
   	}
 
 	componentDidMount() {
@@ -74,15 +92,16 @@ export default class Nav extends React.Component {
 
   render() {
     	return (
-			<MyNav id='navbar'>
-				{this.state.width > 370 ? 
+    		<div>
+			{this.state.width > 370 ? 
+				<MyNav id='navbar'>
 					<InlineMenu><NavLink><A href='#about'>About</A></NavLink>
 					<NavLink><A href='#portfolio'>Portfolio</A></NavLink>
 					<NavLink><A href='#contact'>Contact</A></NavLink></InlineMenu> 
-
-					: <NavLink><A href='#menu'>Menu</A></NavLink>}
-			   	
-			</MyNav>
+				</MyNav>
+				: <CollapsedMenu><InlineMenu><NavLink><A href='#menu'>Menu</A></NavLink></InlineMenu></CollapsedMenu>
+			}
+			</div>
     	);
   	}
 }	

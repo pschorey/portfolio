@@ -1,14 +1,19 @@
 import React from 'react';
-import Nav from './nav';
+//import Nav from './nav';
 import Name from './name'
+import AboutMe from './aboutMe';
+import Projects from './projects';
+import SocialContacts from './socialContacts';
 
 
 class App extends React.Component {
   render() {
     return (
       <div id='root'>
-        <Nav />
         <Name />
+        <AboutMe />
+        <Projects />
+        <SocialContacts />
       </div>
     );
   }
