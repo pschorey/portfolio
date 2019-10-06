@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Hamburger from './hamburger';
 
 //https://apps.apple.com/us/developer/tamber-schorey/id1434244996
 //https://play.google.com/store/apps/developer?id=Paul+Schorey
@@ -8,27 +9,29 @@ import styled from 'styled-components';
 const MyNav = styled.nav `
 	z-index:1;
 	position:fixed;
-	right: 10px;
+	padding-right: 10px;
 	display: flex;
 	align-self: stretch;
 	justify-content: flex-end;
-	height: 60px;
-	line-height:60px;
-	background-color:transparent;
+	height: 44px;
+	line-height:44px;
+	background-color:black;
+	width:100%;
 
 	/*iPad portrait and smaller center nav links*/
 	@media(max-width: 768px) {
 		justify-content: center;
-		right: calc(50% - 186px)
+		padding-right: calc(50% - 186px)
 	}
 `
 const CollapsedMenu = styled.nav`
 	z-index:1;
 	position:fixed;
 	width:100%;
-	height: 60px;
-	line-height:60px;
-	background-color:transparent;
+	height: 44px;
+	line-height:44px;
+	background-color:black;
+	text-align:right;
 `
 
 const InlineMenu = styled.div`
@@ -61,8 +64,6 @@ const A = styled.a`
 	font-size:20px;
 	color:white;
 `
-
-
 
 export default class Nav extends React.Component {
 	constructor(props) {
@@ -99,7 +100,11 @@ export default class Nav extends React.Component {
 					<NavLink><A href='#portfolio'>Portfolio</A></NavLink>
 					<NavLink><A href='#contact'>Contact</A></NavLink></InlineMenu> 
 				</MyNav>
-				: <CollapsedMenu><InlineMenu><NavLink><A href='#menu'>Menu</A></NavLink></InlineMenu></CollapsedMenu>
+				: <CollapsedMenu>
+					<InlineMenu>
+						<Hamburger />
+					</InlineMenu>
+				  </CollapsedMenu>
 			}
 			</div>
     	);

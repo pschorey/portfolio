@@ -11,9 +11,10 @@ class App extends React.Component {
     return (
       <div id='root'>
         <Name />
+        <SocialContacts />
         <AboutMe />
         <Projects />
-        <SocialContacts />
+
       </div>
     );
   }
