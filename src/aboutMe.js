@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import board from './img/boards/divisionBoard.jpeg';
 
 
 const AboutContainer = styled.div`
-	height:300px;
-  background-color:yellow;
+	height:800px;
+  background-image : url(${board});
+  background-size: cover;
 `
 const Paragraphs = styled.p`
   margin:0px;

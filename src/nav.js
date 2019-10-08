@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Hamburger from './hamburger';
-
-//https://apps.apple.com/us/developer/tamber-schorey/id1434244996
-//https://play.google.com/store/apps/developer?id=Paul+Schorey
-
+import addBoard from './img/boards/additionBoard.jpg'
 
 const MyNav = styled.nav `
 	z-index:1;
@@ -15,7 +12,7 @@ const MyNav = styled.nav `
 	justify-content: flex-end;
 	height: 44px;
 	line-height:44px;
-	background-color:black;
+	background-color: transparent;
 	width:100%;
 
 	/*iPad portrait and smaller center nav links*/
@@ -30,12 +27,11 @@ const CollapsedMenu = styled.nav`
 	width:100%;
 	height: 44px;
 	line-height:44px;
-	background-color:black;
+	background-color:transparent;
 	text-align:right;
 `
 
 const InlineMenu = styled.div`
-
 	display: inline-flex;
 	align-self:stretch;
 `
@@ -46,15 +42,16 @@ const NavLink = styled.div`
 	line-height:30px;
 	margin:5px 10px;
 	border:solid 2px white;
-	border-radius: 8px / 20px;
+	border-radius: 10px / 20px;
 	background-color: gray;
+	background-image : url(${addBoard});
 	:hover {
 		background-color:gray;
-		border-color:black;
+		border-color: rgb(253,253,150);
 	}
 
 	:hover a {
-		color:black;
+		color: rgb(253,253,150);
 	}
 `
 const A = styled.a`
@@ -87,17 +84,13 @@ export default class Nav extends React.Component {
 		window.removeEventListener('resize', this.updateDimensions);
 	}
 
-
-
-//370 break point
-
   render() {
     	return (
     		<div>
 			{this.state.width > 370 ? 
 				<MyNav id='navbar'>
 					<InlineMenu><NavLink><A href='#about'>About</A></NavLink>
-					<NavLink><A href='#portfolio'>Portfolio</A></NavLink>
+					<NavLink><A href='#projects'>Projects</A></NavLink>
 					<NavLink><A href='#contact'>Contact</A></NavLink></InlineMenu> 
 				</MyNav>
 				: <CollapsedMenu>

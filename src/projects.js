@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const MyDiv = styled.div`
-	height:300px;
+	height:800px;
 	background-color:orange;
 `
 
@@ -18,7 +18,7 @@ export default class Projects extends React.Component {
 
   render() {
     	return (
-			<MyDiv id="Projects">
+			<MyDiv id="projects">
 				<div className="project-title">some project title</div>
 
 			</MyDiv>

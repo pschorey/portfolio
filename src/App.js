@@ -1,20 +1,19 @@
 import React from 'react';
-//import Nav from './nav';
 import Name from './name'
 import AboutMe from './aboutMe';
 import Projects from './projects';
-import SocialContacts from './socialContacts';
-
+import SocialContainer from './socialContainer';
+import GlobalFonts from './fonts/fonts.js'
 
 class App extends React.Component {
   render() {
     return (
       <div id='root'>
+        <GlobalFonts />
         <Name />
-        <SocialContacts />
         <AboutMe />
         <Projects />
-
+        <SocialContainer />
       </div>
     );
   }

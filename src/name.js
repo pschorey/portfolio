@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Nav from './nav';
 import pauly from './img/pauly.gif';
 import guitar from './img/guitar.jpg'
+import mainBoard from './img/boards/mainMenu.jpg'
+
 
 //styled variables must be capitalized to work.......
 const NameDiv = styled.div`
@@ -11,15 +13,22 @@ const NameDiv = styled.div`
 	text-align:center;
 	background-color:gray;
 	position:relative;
+	background-image : url(${mainBoard});
+	background-size: cover;
 `
+
 const DevName = styled.h1`
 	line-height:80px;
 	font-size:80px;
-	font-family:"Lucida Console", Monaco, monospace;
-	color: pink;
+	font-family: Chalk;
+	color: white;
 	margin:0px;
 	padding-top:60px;
-		
+	
+	@media(min-width:810px) {
+		padding-top:120px;
+	}
+
 	@media(max-width: 700px) {
 		font-size: 70px;
 	}
@@ -80,10 +89,10 @@ export default class Name extends React.Component {
       		height: 0,
       		disabled: false,
       		/*buttonVis: false,*/
-      		style: {color: 'black'},
+      		style: {color: 'white'}, /*pin over the top*/
       		showMe: true
     	};
-    	this.updateDimensions = this.updateDimensions.bind(this)
+    	this.updateDimensions = this.updateDimensions.bind(this);
     	this.animateName = this.animateName.bind(this);
     	/*this.notPaullyShore = this.notPaullyShore.bind(this);*/
   	}
@@ -116,7 +125,7 @@ export default class Name extends React.Component {
 		    let tempMid = 'M'
 		    let tempLast = 'S'
 		    
-		    this.setState({style: {color: 'black'}})
+		    this.setState({style: {color: 'white'}})
 		    this.setState({text: 'PMS'})
 		    
 		    for (let i = 1; i < 16; i++) {

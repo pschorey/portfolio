@@ -12,14 +12,18 @@ const HamburgerContainer = styled.div`
   :hover {
   	cursor:pointer;
   }
+
+  :hover div {
+  	border-color: rgb(253,253,150);  	
+  }
 `
 const HamBars = styled.div`
   height:0px;
   margin: 8px 4px 0px 4px;
-  border: 2px solid white; 
+  border: 2px solid white;
 `
 
-const Demo0 = styled.div`
+const PullDownContainer = styled.div`
     width:100%;
     height:vh;
     background-color: rgb(240, 240, 232);
@@ -28,21 +32,37 @@ const Demo0 = styled.div`
     left:0;
 `
 
-const DemoBlock = styled.div`
+const PullDown = styled.div`
     z-index:2;
     position: absolute;
-    top: -600px;
     width: 100%;
-    height: 600px;
-    border-radius: 0px 0px 20px 20px;
-    background-color: rgb(130, 181, 198);
+    background-color: rgb(0, 0, 0, .75);
+`
+
+const MiniMenu = styled.div`
+	text-align:center;
+	padding-top:50px;
+	display:flex;
+	flex-direction:column;
+`
+
+const MiniLink = styled.a`
+	color:white;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-size:20px;
+	margin-bottom:10px;
+
+	:hover {
+		color: rgb(253,253,150);
+	}
 `
 
 export default class Hamburger extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-    		open: false
+    		open: false,
+    		PullDownHeight: window.innerHeight
     	};
   	}
 
@@ -66,20 +86,28 @@ export default class Hamburger extends React.Component {
 					<HamBars></HamBars>
 					<HamBars></HamBars>
 				</HamburgerContainer>
-			{/* ?  # represents height of component...*/}
-				<Motion style={{x: spring(this.state.open ? 600 : 0)}}>
-		          {({x}) =>
+			{/* ?  # represents height of component...*, # was 600 */}
+				<Motion style={{y: spring(this.state.open ? this.state.PullDownHeight : 0)}}>
+		          {({y}) =>
 		            // children is a callback which should accept the current value of
 		            // `style`
-		            <Demo0 className="demo0">
-		              <DemoBlock className="demo0-block" style={{
-		                WebkitTransform: `translate3d(0, ${x}px, 0)`,
-		                transform: `translate3d(0, ${x}px, 0)`,
+		            <PullDownContainer className="demo0"
+						onMouseDown={this.handleMouseDown} 
+						onTouchStart={this.handleTouchStart}
+		            >
+		              <PullDown className="demo0-block" style={{
+		                WebkitTransform: `translate3d(0, ${y}px, 0)`,
+		                transform: `translate3d(0, ${y}px, 0)`, 
+		                height: this.state.PullDownHeight,
+		                top: this.state.PullDownHeight * -1
 		              }}>
-		              	<a href='ugh'>ugh</a>
-		              	<a href='bro'>bro</a>
-		              </DemoBlock>
-		            </Demo0>
+		              	<MiniMenu>
+			              	<MiniLink href='#about'>About</MiniLink>
+			              	<MiniLink href='#projects'>Projects</MiniLink>
+			              	<MiniLink href='#contact'>Contact</MiniLink>
+		              	</MiniMenu>
+		              </PullDown>
+		            </PullDownContainer>
 		          }
 	        	</Motion>
         	</div>
