@@ -20,7 +20,11 @@ export default class SocialLink extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-         increase: true
+         increase: true,
+         stiffAndDamp: {
+          stiffness:120,
+          damping:14
+        }
       };
       this.mouseEnter = this.mouseEnter.bind(this);
       this.mouseLeave = this.mouseLeave.bind(this);
@@ -38,9 +42,9 @@ export default class SocialLink extends React.Component {
       return (
         <Motion
           defaultStyle={{ scaleXY: 1, width:40, height:40}}
-          style={{ scaleXY: this.state.increase ? spring(1) : spring(0),
-            width: this.state.increase ? spring(40) : spring(65),
-            height: this.state.increase ? spring(40) : spring(65)
+          style={{ scaleXY: spring(this.state.increase ? 1 : 0, this.state.stiffAndDamp),
+            width: spring(this.state.increase ? 40 : 65, this.state.stiffAndDamp),
+            height: spring(this.state.increase ? 40 : 65, this.state.stiffAndDamp)
           }}
         >
           {(style) => (

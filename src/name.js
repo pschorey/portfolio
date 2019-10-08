@@ -108,7 +108,7 @@ export default class Name extends React.Component {
 	    this.updateDimensions();
         setTimeout( () => {
       		this.animateName()
-    	}, 2500);
+    	}, 1500);
     }
 
 	componentWillUnmount() {

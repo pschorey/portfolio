@@ -9,7 +9,8 @@ import twitter from './img/icons/twitter.svg';
 import SocialLink from './socialLink';
 
 const MyDiv = styled.div`
-	height:200px;
+  pading-top:60px;
+  height:200px;
   background-color:green;
 
   @media(max-width : 420px) {
@@ -55,8 +56,8 @@ export default class SocialContainer extends React.Component {
 			<MyDiv id="contact">
 		        <Title>Let's Connect...</Title>
 		        <IconContainer>
-					{this.state.socialPages.map(socialPage => 
-					   <SocialLink img={socialPage.siteImg} link={socialPage.link}/>
+					{this.state.socialPages.map((socialPage, index) => 
+					   <SocialLink key={index} img={socialPage.siteImg} link={socialPage.link}/>
 					 )}
 		        </IconContainer>  
 			</MyDiv>

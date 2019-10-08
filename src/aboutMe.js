@@ -4,6 +4,7 @@ import board from './img/boards/divisionBoard.jpeg';
 
 
 const AboutContainer = styled.div`
+  padding-top:60px;
 	height:800px;
   background-image : url(${board});
   background-size: cover;

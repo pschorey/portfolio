@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 
 const MyDiv = styled.div`
+	padding-top:60px;
 	height:800px;
 	background-color:orange;
 `

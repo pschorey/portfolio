@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import NavButton from './navButton';
 import Hamburger from './hamburger';
-import addBoard from './img/boards/additionBoard.jpg'
 
 const MyNav = styled.nav `
 	z-index:1;
@@ -36,36 +36,13 @@ const InlineMenu = styled.div`
 	align-self:stretch;
 `
 
-const NavLink = styled.div`
-	/*color:white;*/
-	height:30px;
-	line-height:30px;
-	margin:5px 10px;
-	border:solid 2px white;
-	border-radius: 10px / 20px;
-	background-color: gray;
-	background-image : url(${addBoard});
-	:hover {
-		background-color:gray;
-		border-color: rgb(253,253,150);
-	}
 
-	:hover a {
-		color: rgb(253,253,150);
-	}
-`
-const A = styled.a`
-	padding:0px 15px;	
-	font-family:"Comic Sans MS", cursive, sans-serif;
-	text-decoration:none;
-	font-size:20px;
-	color:white;
-`
 
 export default class Nav extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
+    		linkArray: ['About', 'Projects', 'Contact'],
     		width: 371,
     	};
 		this.updateDimensions = this.updateDimensions.bind(this);
@@ -89,9 +66,20 @@ export default class Nav extends React.Component {
     		<div>
 			{this.state.width > 370 ? 
 				<MyNav id='navbar'>
-					<InlineMenu><NavLink><A href='#about'>About</A></NavLink>
-					<NavLink><A href='#projects'>Projects</A></NavLink>
-					<NavLink><A href='#contact'>Contact</A></NavLink></InlineMenu> 
+					<InlineMenu>
+						{
+							this.state.linkArray.map( (link, index) => 
+								<NavButton key={index} link={link} />
+							)
+						}
+						
+				{/* 
+<NavLink><A href='#about'>About</A></NavLink>
+						<NavLink><A href='#projects'>Projects</A></NavLink>
+						<NavLink><A href='#contact'>Contact</A></NavLink>
+				*/}
+						
+					</InlineMenu> 
 				</MyNav>
 				: <CollapsedMenu>
 					<InlineMenu>
