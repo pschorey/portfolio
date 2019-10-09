@@ -1,7 +1,8 @@
+/*
 import React from 'react';
 import {Motion, spring} from 'react-motion';
 import styled from 'styled-components';
-
+import PullDownMenu from './pullDownMenu';
 
 const HamburgerContainer = styled.div`
   float:right;
@@ -18,44 +19,14 @@ const HamburgerContainer = styled.div`
   }
 `
 const HamBars = styled.div`
+  position:relative;
+  z-index:4;
   height:0px;
   margin: 8px 4px 0px 4px;
   border: 2px solid white;
 `
 
-const PullDownContainer = styled.div`
-    width:100%;
-    height:vh;
-    background-color: rgb(240, 240, 232);
-    position: absolute;
-    top:0;
-    left:0;
-`
 
-const PullDown = styled.div`
-    z-index:2;
-    position: absolute;
-    width: 100%;
-    background-color: rgb(0, 0, 0, .75);
-`
-
-const MiniMenu = styled.div`
-	text-align:center;
-	padding-top:50px;
-	display:flex;
-	flex-direction:column;
-`
-
-const MiniLink = styled.a`
-	color:white;
-	font-family:"Comic Sans MS", cursive, sans-serif;
-	font-size:20px;
-	margin-bottom:10px;
-
-	:hover {
-		color: rgb(253,253,150);
-	}
-`
 
 export default class Hamburger extends React.Component {
 	constructor(props) {
@@ -78,99 +49,163 @@ export default class Hamburger extends React.Component {
   render() {
     	return (
     		<div>
-				<HamburgerContainer 
-					onMouseDown={this.handleMouseDown} 
-					onTouchStart={this.handleTouchStart}
-				>
-					<HamBars></HamBars>
-					<HamBars></HamBars>
-					<HamBars></HamBars>
-				</HamburgerContainer>
-			{/* ?  # represents height of component...*, # was 600 */}
-				<Motion style={{y: spring(this.state.open ? this.state.PullDownHeight : 0)}}>
-		          {({y}) =>
-		            // children is a callback which should accept the current value of
-		            // `style`
-		            <PullDownContainer className="demo0"
-						onMouseDown={this.handleMouseDown} 
-						onTouchStart={this.handleTouchStart}
-		            >
-		              <PullDown className="demo0-block" style={{
-		                WebkitTransform: `translate3d(0, ${y}px, 0)`,
-		                transform: `translate3d(0, ${y}px, 0)`, 
-		                height: this.state.PullDownHeight,
-		                top: this.state.PullDownHeight * -1
-		              }}>
-		              	<MiniMenu>
-			              	<MiniLink href='#about'>About</MiniLink>
-			              	<MiniLink href='#projects'>Projects</MiniLink>
-			              	<MiniLink href='#contact'>Contact</MiniLink>
-		              	</MiniMenu>
-		              </PullDown>
-		            </PullDownContainer>
+				<Motion style={{rotUp: spring(this.state.open ? -45 : 0),
+								moveDown: spring(this.state.open ? 12 : 0),
+								rotDown: spring(this.state.open ? 45 : 0),
+								moveUp: spring(this.state.open ? -12 : 0),
+								opacity: spring(this.state.open ? 0 : 1)
+				}}>
+		          {({rotUp, rotDown, moveDown, moveUp, opacity}) =>
+					<div>
+						<HamburgerContainer
+							onMouseDown={this.handleMouseDown} 
+							onTouchStart={this.handleTouchStart}
+						>
+							<HamBars
+								style={{
+									transform: `translate(0px, ${moveDown}px) rotate(${rotDown}deg)`,
+									color: 'red'
+								}}
+							></HamBars>
+							<HamBars
+								style={{
+									opacity: opacity
+								}}
+							></HamBars>
+							<HamBars
+								style={{
+									transform: `translate(0px, ${moveUp}px) rotate(${rotUp}deg)`
+								}}
+							></HamBars>
+						</HamburgerContainer>
+						{this.state.open && <PullDownMenu open={true} PullDownHeight={this.state.pullDownHeight}/>}
+		            </div>
 		          }
 	        	</Motion>
         	</div>
     	);
   	}
-}	
+}
+*/
 
-/*
-const Demo0 = styled.div`
-    border-radius: 4px;
+import React from 'react';
+import {Motion, spring} from 'react-motion';
+import styled from 'styled-components';
+import MiniMenuLink from './miniMenuLink.js';
+
+const HamburgerContainer = styled.div`
+  float:right;
+  width:44px;
+  height:42px;
+  margin-right:20px;
+
+  :hover {
+  	cursor:pointer;
+  }
+
+  :hover div {
+  	border-color: rgb(253,253,150);  	
+  }
+`
+const HamBars = styled.div`
+  position:relative;
+  z-index:4;
+  height:0px;
+  margin: 8px 4px 0px 4px;
+  border: 2px solid white;
+`
+
+const PullDownContainer = styled.div`
+    width:100%;
+    height:vh;
     background-color: rgb(240, 240, 232);
-    position: relative;
-    margin: 5px 3px 10px;
-    width: 450px;
-    height: 50px;
-`
-
-const DemoBlock = styled.div`
     position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 4px;
-    background-color: rgb(130, 181, 198);
+    top:0;
+    left:0;
 `
 
-export default class SocialContacts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {open: false};
-  };
+const PullDown = styled.div`
+    z-index:2;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(0, 0, 0, .75);
+`
+const MiniMenuDiv = styled.div`
+	text-align:center;
+	padding-top:50px;
+	display:flex;
+	flex-direction:column;
+`
 
-  handleMouseDown = () => {
+
+export default class Hamburger extends React.Component {
+	constructor(props) {
+  		super(props);
+    	this.state = {
+    		open: false,
+    		PullDownHeight: window.innerHeight
+    	};
+    	this.handleMouseDown = this.handleMouseDown.bind(this);
+  	}
+
+  handleMouseDown () {
     this.setState({open: !this.state.open});
   };
 
-  handleTouchStart = (e) => {
-    e.preventDefault();
-    this.handleMouseDown();
-  };
-
   render() {
-    return (
-      <div>
-        <button
-          onMouseDown={this.handleMouseDown}
-          onTouchStart={this.handleTouchStart}>
-          Toggle
-        </button>
-
-        <Motion style={{x: spring(this.state.open ? 400 : 0)}}>
-          {({x}) =>
-            // children is a callback which should accept the current value of
-            // `style`
-            <Demo0 className="demo0">
-              <DemoBlock className="demo0-block" style={{
-                WebkitTransform: `translate3d(${x}px, 0, 0)`,
-                transform: `translate3d(${x}px, 0, 0)`,
-              }} />
-            </Demo0>
-          }
-        </Motion>
-      </div>
-    );
-  };
+    	return (
+    		<div>
+				<Motion style={{y: spring(this.state.open ? this.state.PullDownHeight : 0),
+								rotUp: spring(this.state.open ? -45 : 0),
+								moveDown: spring(this.state.open ? 12 : 0),
+								rotDown: spring(this.state.open ? 45 : 0),
+								moveUp: spring(this.state.open ? -12 : 0),
+								rotX: spring(this.state.open ? 90 : 0),
+								opacity: spring(this.state.open ? 0 : 1)
+				}}>
+		          {({y, rotUp, rotDown, moveDown, moveUp, rotX, opacity}) =>
+					<div>
+						<HamburgerContainer
+							onClick={this.handleMouseDown} 
+						>
+							<HamBars
+								style={{
+									transform: `translate(0px, ${moveDown}px) rotate(${rotDown}deg)`
+								}}
+							></HamBars>
+							<HamBars
+								style={{
+									transform: `rotateY(${rotX}deg)`
+								}}
+							></HamBars>
+							<HamBars
+								style={{
+									transform: `translate(0px, ${moveUp}px) rotate(${rotUp}deg)`
+								}}
+							></HamBars>
+						</HamburgerContainer>
+			            <PullDownContainer 
+							onClick={this.handleMouseDown} 
+			            >
+			              <PullDown className="demo0-block" style={{
+			                WebkitTransform: `translate3d(0, ${y}px, 0)`,
+			                transform: `translate3d(0, ${y}px, 0)`, 
+			                height: this.state.PullDownHeight,
+			                top: this.state.PullDownHeight * -1
+			              }}>
+						<MiniMenuDiv>
+						{
+							this.props.linkArray.map( (link, index) => 
+								<MiniMenuLink key={index} link={link} />
+							)
+						}
+						</MiniMenuDiv>
+			              </PullDown>
+			            </PullDownContainer>
+		            </div>
+		          }
+	        	</Motion>
+        	</div>
+    	);
+  	}
 }
-*/

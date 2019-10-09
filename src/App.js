@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import Name from './name'
 import AboutMe from './aboutMe';
 import Projects from './projects';

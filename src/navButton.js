@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import {Motion, spring} from 'react-motion';
 import addBoard from './img/boards/additionBoard.jpg'
+//Stupid Safari doesn't allow smooth scrolling, so scroll, scroll-doc, and ease-component are required....
+var scroll = require('scroll')
+var page = require('scroll-doc')()
+var ease = require('ease-component')
 
 const NavButtonDiv = styled.div`
 	/*color:white;*/
@@ -42,8 +46,8 @@ export default class NavButton extends React.Component {
     		anchorTarget: null,
     		hover:false,
     		stiffAndDamp: {
-    			stiffness:65,
-    			damping:6
+    			stiffness:250,
+    			damping:4
     		}
     	};
     	this.handleClick = this.handleClick.bind(this);
@@ -52,8 +56,9 @@ export default class NavButton extends React.Component {
   	}
 
   	handleClick(e) {
-  		e.preventDefault();
-  		this.state.anchorTarget.scrollIntoView({behavior:'smooth', block:'start', inline:'start'})
+  		//e.preventDefault();
+  		scroll.top(page, this.state.anchorTarget.offsetTop, { ease: ease.inQuad })
+  		//this.state.anchorTarget.scrollIntoView({behavior:'smooth', block:'start', inline:'start'}) //doesn't work on safari
   	}
 
   	mouseEnter() {

@@ -72,18 +72,12 @@ export default class Nav extends React.Component {
 								<NavButton key={index} link={link} />
 							)
 						}
-						
-				{/* 
-<NavLink><A href='#about'>About</A></NavLink>
-						<NavLink><A href='#projects'>Projects</A></NavLink>
-						<NavLink><A href='#contact'>Contact</A></NavLink>
-				*/}
-						
+												
 					</InlineMenu> 
 				</MyNav>
 				: <CollapsedMenu>
 					<InlineMenu>
-						<Hamburger />
+						<Hamburger linkArray={this.state.linkArray}/>
 					</InlineMenu>
 				  </CollapsedMenu>
 			}
