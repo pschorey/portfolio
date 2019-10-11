@@ -38,8 +38,6 @@ export default class MiniMenuLink extends React.Component {
   	}
 
   	componentDidMount() {
- 		//callback console.log because this.setState is async, using a callback will give correct state after it has been set
-  	    console.log(this.props.link.toLowerCase());
   	    this.setState({
   	    	anchorTarget : document.getElementById(this.props.link.toLowerCase())
   	    })		

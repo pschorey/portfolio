@@ -79,7 +79,8 @@ const GuitarImg = styled(Img)`
 	position:absolute;
 	bottom:20px;
 `
-
+const booHoo = 'Why would someone who was mercilously teased about initials PMS and a name similar to Pauly Shore at the peak of his carrer during middle school go back to be a teacher in one...'
+const guitarTip = 'I hav a minor in music for playing classical guitar, but nowadays I just like to rock out with my daughter.'
 
 export default class Name extends React.Component {
 	constructor(props) {
@@ -193,13 +194,13 @@ export default class Name extends React.Component {
     	return (
 			<NameDiv id='welcome-section' style={{height:this.state.height}}>
 				<Nav />
-				<DevName style={this.state.style}>{this.state.text} </DevName>
+				<DevName title={booHoo} style={this.state.style}>{this.state.text} </DevName>
 				{/*
 					//...Uncomment to add the refresh button again
 					{this.state.buttonVis && <Button disabled={this.state.disabled} onClick={this.animateName}>Again?</Button>}
 				*/
 				}
-				{this.state.showMe ? <GuitarImg src={guitar} /> : <PaulyImg src={pauly} />}
+				{this.state.showMe ? <GuitarImg title={guitarTip} alt='Playing guitar with my daughter' src={guitar} /> : <PaulyImg src={pauly} />}
 			</NameDiv>
     	);
   	}
