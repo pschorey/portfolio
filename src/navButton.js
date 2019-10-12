@@ -2,17 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import {Motion, spring} from 'react-motion';
 import addBoard from './img/boards/additionBoard.jpg'
-//Stupid Safari doesn't allow smooth scrolling, so scroll, scroll-doc, and ease-component are required....
+//Safari doesn't allow smooth scrolling, so scroll, scroll-doc, and ease-component are required....
 var scroll = require('scroll')
 var page = require('scroll-doc')()
 var ease = require('ease-component')
 
 const NavButtonDiv = styled.div`
-	/*color:white;*/
 	height:30px;
 	line-height:30px;
 	margin:5px 10px;
-	/*border:solid 2px white;*/
 	border:solid;
 	border-weight:2px;
 	border-radius: 10px / 20px;
@@ -20,11 +18,9 @@ const NavButtonDiv = styled.div`
 	background-image : url(${addBoard});
 	:hover {
 		background-color:gray;
-		/*border-color: rgb(253,253,150);*/
 	}
 
 	:hover a {
-		/*color: rgb(253,253,150);*/
 		cursor: pointer;
 	}	
 `
@@ -34,7 +30,6 @@ const A = styled.a`
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	text-decoration:none;
 	font-size:20px;
-	/*color: rgb(255,255,255);*/
 `
 
 export default class NavButton extends React.Component {
@@ -55,10 +50,8 @@ export default class NavButton extends React.Component {
     	this.mouseLeave = this.mouseLeave.bind(this);
   	}
 
-  	handleClick(e) {
-  		//e.preventDefault();
+  	handleClick() {
   		scroll.top(page, this.state.anchorTarget.offsetTop, { ease: ease.inQuad })
-  		//this.state.anchorTarget.scrollIntoView({behavior:'smooth', block:'start', inline:'start'}) //doesn't work on safari
   	}
 
   	mouseEnter() {
@@ -74,10 +67,9 @@ export default class NavButton extends React.Component {
   	}
 
   	componentDidMount() {
- 		//callback console.log because this.setState is async, using a callback will give correct state after it has been set
   	    this.setState({
   	    	anchorTarget : document.getElementById(this.state.link.slice(1))
-  	    }, () => { /*console.log(this.state.link + ' a ' + this.state.anchorTarget)*/ });  		
+  	    })	
   	}
 
     render() {

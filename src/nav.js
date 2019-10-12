@@ -4,7 +4,7 @@ import NavButton from './navButton';
 import Hamburger from './hamburger';
 
 const MyNav = styled.nav `
-	z-index:1;
+	z-index:99;
 	position:fixed;
 	padding-right: 10px;
 	display: flex;
@@ -22,7 +22,7 @@ const MyNav = styled.nav `
 	}
 `
 const CollapsedMenu = styled.nav`
-	z-index:1;
+	z-index:99;
 	position:fixed;
 	width:100%;
 	height: 44px;
@@ -42,7 +42,7 @@ export default class Nav extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-    		linkArray: ['About', 'Projects', 'Contact'],
+    		linkArray: ['Home', 'About', 'Projects', 'Contact'],
     		width: 371,
     	};
 		this.updateDimensions = this.updateDimensions.bind(this);
@@ -64,7 +64,7 @@ export default class Nav extends React.Component {
   render() {
     	return (
     		<div>
-			{this.state.width > 370 ? 
+			{this.state.width > 415 ? 
 				<MyNav id='navbar'>
 					<InlineMenu>
 						{

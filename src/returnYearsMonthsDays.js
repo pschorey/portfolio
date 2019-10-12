@@ -32,7 +32,7 @@ export default function returnYearsMonthsDays (monthDayYearStr) {
 
     let getDaysDiff = (thenMonths, todayMonths, thenDays, todayDays) => {
       let daysInMonth =  new Date(todayYears, todayMonths, 0).getDate(); //daysInMonth method from https://stackoverflow.com/questions/315760/what-is-the-best-way-to-determine-the-number-of-days-in-a-month-with-javascript 
-      return todayDays > thenDays ? todayDays - thenDays : daysInMonth + todayDays - thenDays;
+      return todayDays >= thenDays ? todayDays - thenDays : daysInMonth + todayDays - thenDays;
     }
     let daysDiff = getDaysDiff(thenMonths, todayMonths, thenDays, todayDays);
   

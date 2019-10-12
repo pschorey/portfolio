@@ -1,99 +1,14 @@
-/*
-import React from 'react';
-import {Motion, spring} from 'react-motion';
-import styled from 'styled-components';
-import PullDownMenu from './pullDownMenu';
-
-const HamburgerContainer = styled.div`
-  float:right;
-  width:44px;
-  height:42px;
-  margin-right:20px;
-
-  :hover {
-  	cursor:pointer;
-  }
-
-  :hover div {
-  	border-color: rgb(253,253,150);  	
-  }
-`
-const HamBars = styled.div`
-  position:relative;
-  z-index:4;
-  height:0px;
-  margin: 8px 4px 0px 4px;
-  border: 2px solid white;
-`
-
-
-
-export default class Hamburger extends React.Component {
-	constructor(props) {
-  		super(props);
-    	this.state = {
-    		open: false,
-    		PullDownHeight: window.innerHeight
-    	};
-  	}
-
-  handleMouseDown = () => {
-    this.setState({open: !this.state.open});
-  };
-
-  handleTouchStart = (e) => {
-    e.preventDefault();
-    this.handleMouseDown();
-  };
-
-  render() {
-    	return (
-    		<div>
-				<Motion style={{rotUp: spring(this.state.open ? -45 : 0),
-								moveDown: spring(this.state.open ? 12 : 0),
-								rotDown: spring(this.state.open ? 45 : 0),
-								moveUp: spring(this.state.open ? -12 : 0),
-								opacity: spring(this.state.open ? 0 : 1)
-				}}>
-		          {({rotUp, rotDown, moveDown, moveUp, opacity}) =>
-					<div>
-						<HamburgerContainer
-							onMouseDown={this.handleMouseDown} 
-							onTouchStart={this.handleTouchStart}
-						>
-							<HamBars
-								style={{
-									transform: `translate(0px, ${moveDown}px) rotate(${rotDown}deg)`,
-									color: 'red'
-								}}
-							></HamBars>
-							<HamBars
-								style={{
-									opacity: opacity
-								}}
-							></HamBars>
-							<HamBars
-								style={{
-									transform: `translate(0px, ${moveUp}px) rotate(${rotUp}deg)`
-								}}
-							></HamBars>
-						</HamburgerContainer>
-						{this.state.open && <PullDownMenu open={true} PullDownHeight={this.state.pullDownHeight}/>}
-		            </div>
-		          }
-	        	</Motion>
-        	</div>
-    	);
-  	}
-}
-*/
-
 import React from 'react';
 import {Motion, spring} from 'react-motion';
 import styled from 'styled-components';
 import MiniMenuLink from './miniMenuLink.js';
 
+const Container = styled.div`
+	/*overflow:hidden;*/
+`
+
 const HamburgerContainer = styled.div`
+
   float:right;
   width:44px;
   height:42px;
@@ -109,7 +24,7 @@ const HamburgerContainer = styled.div`
 `
 const HamBars = styled.div`
   position:relative;
-  z-index:4;
+  z-index:100;
   height:0px;
   margin: 8px 4px 0px 4px;
   border: 2px solid white;
@@ -125,7 +40,7 @@ const PullDownContainer = styled.div`
 `
 
 const PullDown = styled.div`
-    z-index:2;
+    z-index:99;
     position: absolute;
     width: 100%;
     background-color: rgb(0, 0, 0, .75);
@@ -154,7 +69,7 @@ export default class Hamburger extends React.Component {
 
   render() {
     	return (
-    		<div>
+    		<Container>
 				<Motion style={{y: spring(this.state.open ? this.state.PullDownHeight : 0),
 								rotUp: spring(this.state.open ? -45 : 0),
 								moveDown: spring(this.state.open ? 12 : 0),
@@ -205,7 +120,7 @@ export default class Hamburger extends React.Component {
 		            </div>
 		          }
 	        	</Motion>
-        	</div>
+        	</Container>
     	);
   	}
 }

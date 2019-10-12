@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import board from './img/boards/multiplyBoard.jpg';
 
 const MyDiv = styled.div`
 	padding-top:60px;
-	height:800px;
+  height:auto;
+	min-height:100vh;
 	background-color:orange;
+  background-image : url(${board});
+  background-size: cover;
 `
 
 
@@ -21,7 +24,6 @@ export default class Projects extends React.Component {
     	return (
 			<MyDiv id="projects">
 				<div className="project-title">some project title</div>
-
 			</MyDiv>
     	);
   	}

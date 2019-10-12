@@ -8,6 +8,9 @@ const A = styled.a`
   display:flex;
   align-items:center;
   justify-content:center;
+  background-color: rgba(255,255,255,.5);
+  border-radius:100%;
+  margin:5px;
 `
 
 const IMG = styled.img`
@@ -16,6 +19,7 @@ const IMG = styled.img`
   width:50px;
   height:50px;*/
 `
+
 export default class SocialLink extends React.Component {
   constructor(props) {
       super(props);
@@ -23,7 +27,7 @@ export default class SocialLink extends React.Component {
          increase: true,
          stiffAndDamp: {
           stiffness:120,
-          damping:14
+          damping:18
         }
       };
       this.mouseEnter = this.mouseEnter.bind(this);

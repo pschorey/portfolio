@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Nav from './nav';
 import pauly from './img/pauly.gif';
 import guitar from './img/guitar.jpg'
-import mainBoard from './img/boards/mainMenu.jpg'
-
+//import mainBoard from './img/boards/mainMenu.jpg'
+import board from './img/boards/additionBoard.jpg';
 
 //styled variables must be capitalized to work.......
 const NameDiv = styled.div`
@@ -13,7 +13,7 @@ const NameDiv = styled.div`
 	text-align:center;
 	background-color:gray;
 	position:relative;
-	background-image : url(${mainBoard});
+	background-image : url(${board});
 	background-size: cover;
 `
 
@@ -22,11 +22,10 @@ const DevName = styled.h1`
 	font-size:80px;
 	font-family: Chalk;
 	color: white;
-	margin:0px;
-	padding-top:60px;
+	margin: auto;
 	
 	@media(min-width:810px) {
-		padding-top:120px;
+		/*padding-top:120px;*/
 	}
 
 	@media(max-width: 700px) {
@@ -35,6 +34,9 @@ const DevName = styled.h1`
 	@media(max-width: 520px) {
 		font-size: 60px;
 	}
+	@media(max-width: 400px) {
+		font-size:55px;
+	}
 	@media(max-width: 300px) {
 		font-size: 50px;
 	}
@@ -42,7 +44,7 @@ const DevName = styled.h1`
 		font-size: 35px;
 	}
 	@media(max-width: 779px) {
-		height:316px;
+		/*height:316px;*/
 	}
 `
 
@@ -87,7 +89,7 @@ export default class Name extends React.Component {
   		super(props);
     	this.state = {
       		text: 'PMS',
-      		height: 0,
+      		height: '100vh',
       		disabled: false,
       		/*buttonVis: false,*/
       		style: {color: 'white'}, /*pin over the top*/
@@ -99,9 +101,11 @@ export default class Name extends React.Component {
   	}
 
   	updateDimensions () {
+  		/* //not needed without images...
   		let height = window.innerHeight;  //-60 for nav height if removing absolute pos.
   		height = height < 600 ? 601 : height; //549
   		this.setState({height: height});
+		*/
   	}
 
     componentDidMount() {
@@ -193,6 +197,7 @@ export default class Name extends React.Component {
   render() {
     	return (
 			<NameDiv id='welcome-section' style={{height:this.state.height}}>
+				<div id='home'></div>
 				<Nav />
 				<DevName title={booHoo} style={this.state.style}>{this.state.text} </DevName>
 				{/*
@@ -200,7 +205,7 @@ export default class Name extends React.Component {
 					{this.state.buttonVis && <Button disabled={this.state.disabled} onClick={this.animateName}>Again?</Button>}
 				*/
 				}
-				{this.state.showMe ? <GuitarImg title={guitarTip} alt='Playing guitar with my daughter' src={guitar} /> : <PaulyImg src={pauly} />}
+				{/*this.state.showMe ? <GuitarImg title={guitarTip} alt='Playing guitar with my daughter' src={guitar} /> : <PaulyImg src={pauly} />*/}
 			</NameDiv>
     	);
   	}
