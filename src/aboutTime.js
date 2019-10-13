@@ -2,12 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 import returnYearsMonthsDays from './returnYearsMonthsDays';
 
+const labelColor = 'rgb(0,0,0)';
+const backgroundDark = 'rgba(255,255,255,.1)';
+const backgroundLight = 'rgba(255,255,255,.2)';
+const gridHeight = `  height:90px;
+                      line-height:90px;
+                      @media(min-width: 790px) {
+                        height:45px;
+                        line-height:45px;
+                      }
+                      @media(max-width: 499px) {
+                        height:45px;
+                        line-height:45px;
+                      }
+                      `
+
+
 const AboutTimeContainer = styled.div`
   position:relative;
-  margin: 15px auto 0px auto;
+  margin: 0px auto 0px auto;
   text-align:center;
   width:90%;
-  height:115px;
+
+  height:90px;
+  @media(min-width: 790px) {
+    height:45px;
+    line-height:45px;
+  }
 `
 
 const AboutTimeBlur = styled.div`
@@ -17,7 +38,7 @@ left:0;
 z-index:0;
 height:100%;
 width:100%;
-box-shadow:10px 3px 50px 2px rgba(255,255,255, .8);
+/*box-shadow:0px 0px 100px 0px rgba(255,255,255, .8);*/
 
 /*
 background-image: linear-gradient(to bottom, #29323c , #485563);
@@ -35,17 +56,15 @@ const AboutTimeGrid = styled.div`
   height:100%;
   width:100%;
   z-index:1;
-  padding:5px;
+  /*padding:5px;*/
   display:grid;
   align-items:center;
-font-family: "Comic Sans MS",cursive,sans-serif;
-
 
   @media(min-width: 500px) {
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas:
         "title       yearsNum    monthsNum    daysNum"
-        "title       yearsLabel  monthsLabel  daysLabel"
+        /*"title       yearsLabel  monthsLabel  daysLabel"*/
     }
 
   @media(max-width: 499px) {
@@ -53,7 +72,7 @@ font-family: "Comic Sans MS",cursive,sans-serif;
       grid-template-areas:
         "title       title        title"
         "yearsNum    monthsNum    daysNum"
-        "yearsLabel  monthsLabel  daysLabel"
+        /*"yearsLabel  monthsLabel  daysLabel"*/
     }
 
     :span {
@@ -61,54 +80,61 @@ font-family: "Comic Sans MS",cursive,sans-serif;
     }
 `
 
-
-const Scoreboard = styled('.scoreboard')`
-	font-family: scoreboard, monospace;
-	color:rgb(253,253,150);
-	font-size:20px;
-`
-
 const Title = styled.div`
 	font-size: 24px;
 	grid-area: title;
   text-align:center;
+  color: ${labelColor};
+
 `
 const YearsNum = styled.div `
 	grid-area: yearsNum;
 	font-family: scoreboard, monospace;
   color:rgb(253,253,150);
 	font-size:28px;
+  background-color:${backgroundDark};
+  ${gridHeight}
 `
-const YearsLabel = styled.div`
-	grid-area: yearsLabel;
-  color: rgba(255, 255, 255, .88);
-  align-self:start;
-  font-size: 20px;
-`
+
 const MonthsNum = styled.div`
 	grid-area: monthsNum;
 	font-family: scoreboard, monospace;
   color:rgb(253,253,150);
 	font-size:28px;
+  background-color:${backgroundLight};
+  ${gridHeight}
 `
-const MonthsLabel = styled.div`
-	grid-area: monthsLabel;
-  color: rgba(255, 255, 255, .88);
-  align-self:start;
-  font-size: 20px;
-`
+
 const DaysNum = styled.div`
 	grid-area: daysNum;
 	font-family: scoreboard, monospace;
   color:rgb(253,253,150);
 	font-size:28px;
+  background-color:${backgroundDark};
+  ${gridHeight}
 `
-const DaysLabel = styled.div`
-	grid-area: daysLabel;
-  color: rgba(255, 255, 255, .88);
+
+const YearsLabel = styled.div`
+  grid-area: yearsLabel;
+  color: ${labelColor};
   align-self:start;
   font-size: 20px;
 `
+
+const MonthsLabel = styled.div`
+  grid-area: monthsLabel;
+  color: ${labelColor};
+  align-self:start;
+  font-size: 20px;
+`
+
+const DaysLabel = styled.div`
+  grid-area: daysLabel;
+  color: ${labelColor};
+  align-self:start;
+  font-size: 20px;
+`
+
 
 export default class AboutTime extends React.Component {
 	constructor(props) {
@@ -134,11 +160,14 @@ export default class AboutTime extends React.Component {
     			<AboutTimeGrid>
     				<Title>{this.props.title}</Title>
     				<YearsNum className='scoreboard'>{this.state.dateArray[0]}</YearsNum>
-    				<YearsLabel >Years</YearsLabel>
+    	
     				<MonthsNum className='scoreboard'>{this.state.dateArray[1]}</MonthsNum>
-    				<MonthsLabel>Months</MonthsLabel>
+    				
     				<DaysNum className='scoreboard'>{this.state.dateArray[2]}</DaysNum>
-    				<DaysLabel>Days</DaysLabel>
+            {/*
+    				<YearsLabel >Years</YearsLabel>
+            <MonthsLabel>Months</MonthsLabel>
+            <DaysLabel>Days</DaysLabel>*/}
     			</AboutTimeGrid>
           <AboutTimeBlur>
           </AboutTimeBlur>

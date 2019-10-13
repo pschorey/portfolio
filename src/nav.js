@@ -64,7 +64,7 @@ export default class Nav extends React.Component {
   render() {
     	return (
     		<div>
-			{this.state.width > 415 ? 
+			{this.state.width > 470 ? 
 				<MyNav id='navbar'>
 					<InlineMenu>
 						{
