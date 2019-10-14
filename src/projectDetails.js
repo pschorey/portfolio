@@ -14,9 +14,17 @@ const PullDown = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: brown;
+    top:-0px;
+    left:0px;
+    background-color: white;
 `
+/*
+                      WebkitTransform: `translate3d(0, ${x}px, 0)`,
+                      transform: `translate3d(0, ${x}px, 0)`, 
 
+                      left:  0,
+                      top: -350,
+*/
 export default class ProjectDetails extends React.Component {
 	constructor(props) {
   		super(props);
@@ -42,11 +50,6 @@ export default class ProjectDetails extends React.Component {
           }}>
   				{({x, opac}) =>
             <PullDown style={{
-                      WebkitTransform: `translate3d(0, ${x}px, 0)`,
-                      transform: `translate3d(0, ${x}px, 0)`, 
-
-                      left:  0,
-                      top: -350,
                       opacity: `${opac}`
                     }}/>
           }
