@@ -16,7 +16,7 @@ const NameDiv = styled.div`
 
 `
 
-const DevName = styled.div`
+const DevName = styled.h1`
 	line-height:90px;
 	font-size:90px;
 	font-family: Chalk;

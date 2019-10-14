@@ -89,7 +89,7 @@ export default class ProjectDetails extends React.Component {
 
   render() {
     	return (
-  			<ProjectDetailsContainer onClick={this.handleMouseDown} >
+  			<ProjectDetailsContainer className='project-title' onClick={this.handleMouseDown} >
           <Motion style={{x: spring(this.state.clicked ? 350 : 700, this.state.stiffAndDamp),
             opac: spring(this.state.clicked ? 0 : 1)
           }}>

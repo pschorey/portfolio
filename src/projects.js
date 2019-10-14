@@ -57,7 +57,7 @@ export default class Projects extends React.Component {
            link: 'https://www.squadtiming.com/freetypinglessons/',
            imgSrc: ftl,
            summary: 'An app and website that is used by 1000\'s of students to learn touch typing.',
-           tech: ['JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services', 'Unity Ads Implimentation', 'App Store Optimization']
+           tech: ['JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services', 'Unity Ads Implementation', 'App Store Optimization']
           },
           {
             title: 'Squad Timing',
@@ -70,7 +70,7 @@ export default class Projects extends React.Component {
             title: 'Calculator for Social Security',
             link: 'https://www.squadtiming.com/socialsecuritycalculator/',
             imgSrc: cfss,
-            summary: 'This app takes the complicated Social Security withdrawl and inflation rules and calculates hypothetical lifetime returns.',
+            summary: 'This app takes the complicated Social Security withdraw and inflation rules and calculates hypothetical lifetime returns.',
             tech: ['React', 'Chart.js', 'Android and iOS In-App-Purchasing']
           },
           {

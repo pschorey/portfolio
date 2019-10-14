@@ -116,7 +116,7 @@ export default class AboutMe extends React.Component {
               )
             }
           <Quote>"There is a time for everything, and a season for every activity under heaven..." <span> Ecc. 3:1</span></Quote>
-			    <Statement>Life is good.  I get to spend my time doing what I love, being with family, teaching, coaching, and designing apps.</Statement>
+			    <Statement>Life is good.  I get to spend my time doing what I love: being with family, teaching, coaching, and designing apps.</Statement>
       </AboutContainer>
     	);
   	}

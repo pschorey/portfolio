@@ -15,9 +15,6 @@ const A = styled.a`
 
 const IMG = styled.img`
   display:inline-block;
-  /*
-  width:50px;
-  height:50px;*/
 `
 
 export default class SocialLink extends React.Component {
@@ -52,13 +49,11 @@ export default class SocialLink extends React.Component {
           }}
         >
           {(style) => (
-                    <A href={this.props.link} >
+                    <A href={this.props.link} target="_blank" id={this.props.link === 'https://github.com/pschorey' ? 'profile-link' : ''}>
                       <IMG src={this.props.img} 
                         onMouseEnter={this.mouseEnter}
                         onMouseLeave={this.mouseLeave}
                         style={{
-                          /*transform: `scaleX(${style.scaleXY})`,*/
-                          /*opacity: style.scaleXY,*/
                           width: style.width,
                           height: style.height
                         }}
