@@ -8,7 +8,8 @@ var page = require('scroll-doc')()
 var ease = require('ease-component')
 
 const NavButtonDiv = styled.div`
-	height:30px;
+	z-index:999;
+  height:30px;
 	line-height:30px;
 	margin:5px 10px;
 	border:solid;

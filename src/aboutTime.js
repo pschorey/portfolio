@@ -155,16 +155,13 @@ export default class AboutTime extends React.Component {
     	return (
         <AboutTimeContainer>
     			<AboutTimeGrid>
-    				<Title>{this.props.title}</Title>
+    				<Title title={this.props.tip}>{this.props.title}</Title>
     				<YearsNum className='scoreboard'>{this.state.dateArray[0]}</YearsNum>
     	
     				<MonthsNum className='scoreboard'>{this.state.dateArray[1]}</MonthsNum>
     				
     				<DaysNum className='scoreboard'>{this.state.dateArray[2]}</DaysNum>
-            {/*
-    				<YearsLabel >Years</YearsLabel>
-            <MonthsLabel>Months</MonthsLabel>
-            <DaysLabel>Days</DaysLabel>*/}
+
     			</AboutTimeGrid>
           <AboutTimeBlur>
           </AboutTimeBlur>

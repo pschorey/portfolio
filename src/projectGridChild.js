@@ -19,7 +19,7 @@ const ProjectChild = styled.div`
     width:300px;    
   }
   @media(max-width: 319px) {
-    width: 90%;
+    width: 90vw;
     height: auto;
   }
 
@@ -51,15 +51,13 @@ export default class ProjectGridChild extends React.Component {
     	};
   	}
 
-  			    //<Title>{this.props.title}</Title>
-
   render() {
     	return (
     		<div>
 
   			<ProjectChild>
   				<Img title='ugh' alt='ugggh' src={this.props.imgSrc} />
-  				<ProjectDetails />
+  				<ProjectDetails tech={this.props.tech} link={this.props.link} title={this.props.title} summary={this.props.summary}/>
   			</ProjectChild>
   			</div>
     	);

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import board from './img/boards/divisionBoard.jpeg';
+import board from './img/boards/mainMenu.jpg';
 import android from './img/icons/android.svg';
 import apple from './img/icons/apple.svg';
 import github from './img/icons/github.svg';
@@ -29,7 +29,7 @@ const MyDiv = styled.div`
 `
 
 const Title = styled.div`
-  margin:0px auto 15px auto;
+  margin:0px auto 100px auto;
   width:50%;
   text-align:center;
   font-size:2em;
