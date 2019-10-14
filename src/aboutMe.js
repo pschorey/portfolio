@@ -3,7 +3,7 @@ import styled from 'styled-components';
 //import board from './img/boards/additionBoard.jpg';
 import AboutTime from './aboutTime';
 
-const labelColor = 'rgb(0,0,0)';
+const labelColor = 'rgba(255,255,255,.85)';
 
 const AboutContainer = styled.div`
   padding-top:20px;

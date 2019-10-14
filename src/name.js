@@ -15,14 +15,16 @@ const NameDiv = styled.div`
 	position:relative;
 	background-image : url(${board});
 	background-size: cover;
+
 `
 
-const DevName = styled.h1`
-	line-height:80px;
-	font-size:80px;
+const DevName = styled.div`
+	line-height:90px;
+	font-size:90px;
 	font-family: Chalk;
-	color: white;
+	font-weight:300;
 	margin: auto;
+	padding:20px;
 	
 	@media(min-width:810px) {
 		/*padding-top:120px;*/

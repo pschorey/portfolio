@@ -102,7 +102,7 @@ export default class Hamburger extends React.Component {
 			            <PullDownContainer 
 							onClick={this.handleMouseDown} 
 			            >
-			              <PullDown className="demo0-block" style={{
+			              <PullDown style={{
 			                WebkitTransform: `translate3d(0, ${y}px, 0)`,
 			                transform: `translate3d(0, ${y}px, 0)`, 
 			                height: this.state.PullDownHeight,

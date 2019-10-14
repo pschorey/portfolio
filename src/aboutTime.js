@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import returnYearsMonthsDays from './returnYearsMonthsDays';
 
-const labelColor = 'rgb(0,0,0)';
+const numbersColor = 'color:rgb(253,253,150)';
+const labelColor = 'rgba(255,255,255,.95)';
 const backgroundDark = 'rgba(255,255,255,.1)';
 const backgroundLight = 'rgba(255,255,255,.2)';
 const gridHeight = `  height:90px;
@@ -14,8 +15,15 @@ const gridHeight = `  height:90px;
                       @media(max-width: 499px) {
                         height:45px;
                         line-height:45px;
-                      }
-                      `
+                      }`
+
+ const numbersGridFormat = `
+    font-family: scoreboard, monospace;
+    color: ${numbersColor};
+    font-size:28px;
+    background-color:${backgroundDark};
+    ${gridHeight}
+`                     
 
 
 const AboutTimeContainer = styled.div`
@@ -88,30 +96,19 @@ const Title = styled.div`
 
 `
 const YearsNum = styled.div `
-	grid-area: yearsNum;
-	font-family: scoreboard, monospace;
-  color:rgb(253,253,150);
-	font-size:28px;
-  background-color:${backgroundDark};
-  ${gridHeight}
+  grid-area: yearsNum;
+  ${numbersGridFormat}
 `
 
 const MonthsNum = styled.div`
-	grid-area: monthsNum;
-	font-family: scoreboard, monospace;
-  color:rgb(253,253,150);
-	font-size:28px;
-  background-color:${backgroundLight};
-  ${gridHeight}
+  grid-area: monthsNum;
+  ${numbersGridFormat}
+  background-color: ${backgroundLight};
 `
 
 const DaysNum = styled.div`
-	grid-area: daysNum;
-	font-family: scoreboard, monospace;
-  color:rgb(253,253,150);
-	font-size:28px;
-  background-color:${backgroundDark};
-  ${gridHeight}
+  grid-area: daysNum;
+  ${numbersGridFormat}
 `
 
 const YearsLabel = styled.div`
