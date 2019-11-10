@@ -21,7 +21,9 @@ const DevName = styled.h1`
 	font-size:90px;
 	font-family: Chalk;
 	font-weight:300;
-	margin: auto;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:70px;
 	padding:20px;
 	
 	@media(min-width:810px) {
@@ -83,13 +85,13 @@ const GuitarImg = styled(Img)`
 `
 
 const seriously = 'Seriously, who gives a kid the initials PMS?  Middle school was fun, maybe that\'s why I teach in one now.'
-//const guitarTip = 'I hav a minor in music for playing classical guitar, but nowadays I just like to rock out with my daughter.'
+const guitarTip = 'I hav a minor in music for playing classical guitar, but nowadays I just like to rock out with my daughter.'
 
 export default class Name extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-      		text: 'PMS',
+      		text: 'Paul Matthew Schorey',
       		height: '100vh',
       		disabled: false,
       		/*buttonVis: false,*/
@@ -102,19 +104,22 @@ export default class Name extends React.Component {
   	}
 
   	updateDimensions () {
-  		/* //not needed without images...
+  		//not needed without images...
   		let height = window.innerHeight;  //-60 for nav height if removing absolute pos.
   		height = height < 600 ? 601 : height; //549
   		this.setState({height: height});
-		*/
+		
   	}
 
     componentDidMount() {
     	window.addEventListener('resize', this.updateDimensions);
 	    this.updateDimensions();
         setTimeout( () => {
-      		this.animateName()
-    	}, 1500);
+        	this.animateName();
+      		//window.addEventListener('load', this.animateName)
+    	}, 4000);
+
+
     }
 
 	componentWillUnmount() {
@@ -152,7 +157,7 @@ export default class Name extends React.Component {
 		          if (i === 15) {
 		             setTimeout(this.notPaullyShore, 1000)
 		          }
-		        }, i * 150);
+		        }, i * 250);
 		    }    
 	  	}
 	      
@@ -206,7 +211,7 @@ export default class Name extends React.Component {
 					{this.state.buttonVis && <Button disabled={this.state.disabled} onClick={this.animateName}>Again?</Button>}
 				*/
 				}
-				{/*this.state.showMe ? <GuitarImg title={guitarTip} alt='Playing guitar with my daughter' src={guitar} /> : <PaulyImg src={pauly} />*/}
+				{this.state.showMe ? <GuitarImg title={guitarTip} alt='Playing guitar with my daughter' src={guitar} /> : <PaulyImg src={pauly} />}
 			</NameDiv>
     	);
   	}

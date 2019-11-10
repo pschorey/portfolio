@@ -29,7 +29,7 @@ const MyDiv = styled.div`
 `
 
 const Title = styled.div`
-  margin:0px auto 100px auto;
+  margin:70px auto 45px auto;
   width:50%;
   text-align:center;
   font-size:2em;
