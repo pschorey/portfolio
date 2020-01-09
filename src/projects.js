@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ProjectGridChild from './projectGridChild';
 import ftl from './img/profile/freeTypingLessons.png';
+import fm from './img/profile/farmermath.png';
 import st from './img/profile/squadTiming.png';
 import cfss from './img/profile/calculatorForSocialSecurity.jpg';
 import pt from './img/profile/playerTiming.png';
@@ -33,15 +34,15 @@ const ProjectGrid = styled.div`
 
   @media(min-width: 1240px) {
     grid-template-columns: 33vw 33vw 33vw;
-    grid-template-rows: 400px 400px;
+    grid-template-rows: repeat(400px);/*400px 400px;*/
   }
   @media(max-width: 1239px) {
     grid-template-columns: 50vw 50vw;
-    grid-template-rows: repeat(3, 350px); 
+    grid-template-rows: repeat(350px);*/repeat(3, 350px);*/ 
   }
   @media(max-width: 729px) {
     grid-template-columns: 100vw;
-    grid-template-rows: repeat(6, 300px);  
+    grid-template-rows: repeat(300px);/*repeat(6, 300px);  */
   }
 
   justify-items: center;
@@ -57,7 +58,13 @@ export default class Projects extends React.Component {
            link: 'https://www.squadtiming.com/freetypinglessons/',
            imgSrc: ftl,
            summary: 'An app and website that is used by 1000\'s of students to learn touch typing.',
-           tech: ['JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services', 'Unity Ads Implementation', 'App Store Optimization']
+           tech: ['JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services Hosting', 'Unity Ads Implementation', 'App Store Optimization']
+          },
+          {title: 'Farmer Math',
+           link: 'https://www.squadtiming.com/farmermath/',
+           imgSrc: fm,
+           summary: 'A platform for solving real-world math word problems',
+           tech: ['Built using React', 'AWS Lambda API', 'Firebase Analytics', 'Web, iOS, & Android optimized with one codebase' ]
           },
           {
             title: 'Squad Timing',
@@ -71,7 +78,7 @@ export default class Projects extends React.Component {
             link: 'https://www.squadtiming.com/socialsecuritycalculator/',
             imgSrc: cfss,
             summary: 'This app takes the complicated Social Security withdraw and inflation rules and calculates hypothetical lifetime returns.',
-            tech: ['React', 'Chart.js', 'Android and iOS In-App-Purchasing']
+            tech: ['JS, HTML5, Grid, Flex', 'Chart.js', 'Android and iOS In-App-Purchasing']
           },
           {
             title: 'Player Timing',

@@ -114,11 +114,12 @@ export default class Name extends React.Component {
     componentDidMount() {
     	window.addEventListener('resize', this.updateDimensions);
 	    this.updateDimensions();
+        /*
         setTimeout( () => {
         	this.animateName();
       		//window.addEventListener('load', this.animateName)
     	}, 4000);
-
+		*/
 
     }
 
