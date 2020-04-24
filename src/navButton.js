@@ -15,10 +15,10 @@ const NavButtonDiv = styled.div`
 	border:solid;
 	border-weight:2px;
 	border-radius: 10px / 20px;
-	background-color: gray;
-	background-image : url(${addBoard});
+	/*background-color: gray;*/
+	/*background-image : url(${addBoard});*/
 	:hover {
-		background-color:gray;
+		/*background-color:gray;*/
 	}
 
 	:hover a {

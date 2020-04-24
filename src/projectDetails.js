@@ -72,11 +72,13 @@ export default class ProjectDetails extends React.Component {
         sliderWidth: window.innerWidth,
         sliderHeight: window.innerHeight,
         stiffAndDamp: {
-          stiffness:50,
+          stiffness:1,/*50,*/
           damping:4
         }
     	};
       this.handleMouseDown = this.handleMouseDown.bind(this)
+      this.mouseIn = this.mouseIn.bind(this)
+      this.mouseOut = this.mouseOut.bind(this)
   	}
 
   handleMouseDown () {
@@ -87,9 +89,27 @@ export default class ProjectDetails extends React.Component {
     })
   }
 
+  mouseIn () {
+    this.setState({
+      clicked: false,
+      display: ''
+    })
+  }
+
+  mouseOut () {
+      this.setState({
+        clicked: true,
+        display: 'none'
+      })
+  }
+
   render() {
     	return (
-  			<ProjectDetailsContainer className='project-title' onClick={this.handleMouseDown} >
+  			<ProjectDetailsContainer 
+          className='project-title' 
+          onClick={this.handleMouseDown}
+          onMouseEnter={() => this.mouseIn()}
+          onMouseLeave={() => this.mouseOut()} >
           <Motion style={{x: spring(this.state.clicked ? 350 : 700, this.state.stiffAndDamp),
             opac: spring(this.state.clicked ? 0 : 1)
           }}>

@@ -11,7 +11,8 @@ const NameDiv = styled.div`
 	text-align:center;
 	background-color:gray;
 	position:relative;
-	background-image : url(${board});
+	/*background-image : url(${board});*/
+	
 	background-size: cover;
 
 `

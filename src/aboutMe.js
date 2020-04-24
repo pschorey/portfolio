@@ -14,8 +14,14 @@ const AboutContainer = styled.div`
   background-color:rgb(128, 191, 255);
   background-image: linear-gradient(to bottom, rgb(128, 191, 255) , rgb(179, 217, 255));
 `
+
+const Name = styled.h1`
+  margin-left:10%;
+  font-size:38px;
+`
+  
 const Header = styled.h1`
-  font-family: Chalk;
+  /*font-family: Chalk;*/
   margin-left: 10%;
 `
 
@@ -103,7 +109,9 @@ export default class AboutMe extends React.Component {
   render() {
     	return (
 			<AboutContainer id='about'>
-          <Header>About Time</Header>
+          <Name>Paul Schorey</Name>
+          <Statement>I'm a middle school Computer Applications teacher who likes learning new technologies and building apps and websites with each new tech I tinker with.  My other interests are playing guitar, putzing around the yard, and coaching track and football.</Statement>
+          <Header>About Time...</Header>
           <AboutTimeGridHeaderContainer>
             <AboutTimeGridHeader>
               <YearsLabel >Years</YearsLabel>
@@ -115,8 +123,8 @@ export default class AboutMe extends React.Component {
                <AboutTime key={index} title={aboutTime.title} startDate={aboutTime.startDate} tip={aboutTime.tip}/>
               )
             }
-          <Quote>"There is a time for everything, and a season for every activity under heaven..." <span> Ecc. 3:1</span></Quote>
-			    <Statement>Life is good.  I get to spend my time doing what I love: being with family, teaching, coaching, and designing apps.</Statement>
+          {/*<Quote>"There is a time for everything, and a season for every activity under heaven..." <span> Ecc. 3:1</span></Quote>*/}
+			    
       </AboutContainer>
     	);
   	}

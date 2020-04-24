@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Name from './name'
+import Nav from './nav';
 import AboutMe from './aboutMe';
 import Projects from './projects';
 import SocialContainer from './socialContainer';
@@ -12,7 +13,8 @@ class App extends React.Component {
     return (
       <div>
         <GlobalFonts />
-        <Name />
+        {/*<Name />*/}
+        <Nav />
         <AboutMe />
         <Projects />
         <SocialContainer />

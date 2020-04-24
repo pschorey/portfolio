@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProjectGridChild from './projectGridChild';
+import tfs from './img/profile/trackandfieldscorebook.png';
 import ftl from './img/profile/freeTypingLessons.png';
 import fm from './img/profile/farmermath.png';
 import st from './img/profile/squadTiming.png';
@@ -13,7 +14,7 @@ import th from './img/profile/typingHome.png';
 
 const ProjectTitle = styled.h1`
   margin-left:10%;
-  font-family:chalk;
+  /*font-family:chalk;*/
 `
 
 const MyDiv = styled.div`
@@ -54,17 +55,23 @@ export default class Projects extends React.Component {
   		super(props);
     	this.state = {
         projects: [
+          {title: 'Track and Field Scorebook',
+           link: 'https://www.squadtiming.com/trackandfieldscorebook/',
+           imgSrc: tfs,
+           summary: 'An app used to record and share Track and Field meet results.',
+           tech: ['React Native', 'Realm DB', 'HTML to PDF', 'RN BLob', 'RN In App Purchases']
+          },        
           {title: 'Free Typing Lessons',
            link: 'https://www.squadtiming.com/freetypinglessons/',
            imgSrc: ftl,
            summary: 'An app and website that is used by 1000\'s of students to learn touch typing.',
-           tech: ['JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services Hosting', 'Unity Ads Implementation', 'App Store Optimization']
+           tech: ['Apache Cordova', 'JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services Hosting', 'Unity Ads Implementation', 'App Store Optimization']
           },
           {title: 'Farmer Math',
            link: 'https://www.squadtiming.com/farmermath/',
            imgSrc: fm,
            summary: 'A platform for solving real-world math word problems',
-           tech: ['Built using React', 'AWS Lambda API', 'Firebase Analytics', 'Web, iOS, & Android optimized with one codebase' ]
+           tech: ['Cordova App using React JS', 'AWS Lambda API', 'Firebase Analytics', 'Web, iOS, & Android optimized with one codebase' ]
           },
           {
             title: 'Squad Timing',

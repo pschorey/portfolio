@@ -65,7 +65,7 @@ export default class SocialContainer extends React.Component {
          	{siteImg:stack, link:'https://stackoverflow.com/users/7512559/paul-schorey'},
          	{siteImg:apple, link: 'https://apps.apple.com/us/developer/tamber-schorey/id1434244996'},
          	{siteImg:android, link: 'https://play.google.com/store/apps/developer?id=Paul+Schorey'},
-         	{siteImg:linkedin, link: 'https://www.linkedin.com/in/paul-schorey'},
+         	{siteImg:linkedin, link: 'www.linkedin.com/in/paul-schorey'},
          	{siteImg:twitter, link: 'https://twitter.com/PaulSchorey'}
          ]
     	};
