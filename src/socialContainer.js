@@ -10,7 +10,7 @@ import twitter from './img/icons/twitter.svg';
 import SocialLink from './socialLink';
 
 const MyDiv = styled.div`
-  background-image : url(${board});
+  /*background-image : url(${board});*/
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height:auto;
@@ -18,6 +18,7 @@ const MyDiv = styled.div`
   display:flex;
   flex-direction:column;
   justify-content:center;
+  background-image: linear-gradient(to top, rgba(0,0,0,.9), rgba(50,50,50,.95));
 
   @media(max-width : 523px) {
     height:600px;

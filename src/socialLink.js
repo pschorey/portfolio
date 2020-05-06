@@ -10,7 +10,7 @@ const A = styled.a`
   justify-content:center;
   background-color: rgba(255,255,255,.5);
   border-radius:100%;
-  margin:5px;
+  /*margin:5px;*/
 `
 
 const IMG = styled.img`
@@ -23,8 +23,10 @@ export default class SocialLink extends React.Component {
       this.state = {
          increase: true,
          stiffAndDamp: {
+          /*stiffness:120,
+          damping:18*/
           stiffness:120,
-          damping:18
+          damping:17//28//14
         }
       };
       this.mouseEnter = this.mouseEnter.bind(this);
@@ -43,9 +45,9 @@ export default class SocialLink extends React.Component {
       return (
         <Motion
           defaultStyle={{ scaleXY: 1, width:40, height:40}}
-          style={{ scaleXY: spring(this.state.increase ? 1 : 0, this.state.stiffAndDamp),
-            width: spring(this.state.increase ? 40 : 65, this.state.stiffAndDamp),
-            height: spring(this.state.increase ? 40 : 65, this.state.stiffAndDamp)
+          style={{ scaleXY: spring(this.state.increase ? 1 : 0,{...this.state.stiffAndDamp, precision: 1}/*, this.state.stiffAndDamp*/),
+            width: spring(this.state.increase ? 40 : 52,{...this.state.stiffAndDamp, precision: 1}/*, this.state.stiffAndDamp*/),
+            height: spring(this.state.increase ? 40 : 52,{...this.state.stiffAndDamp, precision: 1}/*, this.state.stiffAndDamp*/)
           }}
         >
           {(style) => (

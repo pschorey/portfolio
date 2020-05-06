@@ -12,10 +12,10 @@ const NavButtonDiv = styled.div`
   height:30px;
 	line-height:30px;
 	margin:5px 10px;
-	border:solid;
-	border-weight:2px;
+	/*border:solid;
+	border-weight:2px;*/
 	border-radius: 10px / 20px;
-	/*background-color: gray;*/
+	background-color: rgba(255,255,255,.8);/*white;*//*rgb(128, 191, 255);*/
 	/*background-image : url(${addBoard});*/
 	:hover {
 		/*background-color:gray;*/
@@ -28,7 +28,6 @@ const NavButtonDiv = styled.div`
 
 const A = styled.a`
 	padding:0px 15px;	
-	font-family:"Comic Sans MS", cursive, sans-serif;
 	text-decoration:none;
 	font-size:20px;
 `
@@ -75,12 +74,14 @@ export default class NavButton extends React.Component {
 
     render() {
     	return (
-    		<Motion style={{r: spring(this.state.hover ? 253 : 255, this.state.stiffAndDamp), 
-    			g: spring(this.state.hover ? 253 : 255, this.state.stiffAndDamp), 
-    			b: spring(this.state.hover ? 150 : 255, this.state.stiffAndDamp)}}>
+    		<Motion style={{
+          r: spring(this.state.hover ? 50 : 60, this.state.stiffAndDamp), 
+    			g: spring(this.state.hover ? 50 : 60, this.state.stiffAndDamp), 
+    			b: spring(this.state.hover ? 50 : 60, this.state.stiffAndDamp)
+        }}>
     			{({r, g, b}) => 
 		  			<NavButtonDiv style={{
-		  				borderColor: `rgb(${r},${g},${b})`
+		  				/*borderColor: `rgb(${r},${g},${b})`*/
 		  			}}
 		  				onMouseEnter={this.mouseEnter}
 		  				onMouseLeave={this.mouseLeave}
@@ -96,4 +97,12 @@ export default class NavButton extends React.Component {
     	);
   	}
 }	
+
+/*
+          r: spring(this.state.hover ? 253 : 255, this.state.stiffAndDamp), 
+          g: spring(this.state.hover ? 253 : 255, this.state.stiffAndDamp), 
+          b: spring(this.state.hover ? 150 : 255, this.state.stiffAndDamp)
+          */
+
+
 		

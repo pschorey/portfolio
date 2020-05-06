@@ -12,7 +12,7 @@ const MyNav = styled.nav `
 	justify-content: flex-end;
 	height: 44px;
 	line-height:44px;
-	background-color: transparent;
+	/*background-color: gray;*/
 	width:100%;
 
 	/*iPad portrait and smaller center nav links*/
