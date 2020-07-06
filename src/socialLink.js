@@ -11,6 +11,7 @@ const A = styled.a`
   background-color: rgba(255,255,255,.5);
   border-radius:100%;
   /*margin:5px;*/
+  margin-top:100;
 `
 
 const IMG = styled.img`
@@ -51,16 +52,18 @@ export default class SocialLink extends React.Component {
           }}
         >
           {(style) => (
-                    <A href={this.props.link} target="_blank" id={this.props.link === 'https://github.com/pschorey' ? 'profile-link' : ''}>
-                      <IMG src={this.props.img} 
-                        onMouseEnter={this.mouseEnter}
-                        onMouseLeave={this.mouseLeave}
-                        style={{
-                          width: style.width,
-                          height: style.height
-                        }}
-                      />
-                  </A>
+            <div style={{marginTop:10}}>
+                      <A href={this.props.link} target="_blank" id={this.props.link === 'https://github.com/pschorey' ? 'profile-link' : ''}>
+                        <IMG src={this.props.img} 
+                          onMouseEnter={this.mouseEnter}
+                          onMouseLeave={this.mouseLeave}
+                          style={{
+                            width: style.width,
+                            height: style.height
+                          }}
+                        />
+                    </A>
+                    </div>
             )}
           </Motion>
       );

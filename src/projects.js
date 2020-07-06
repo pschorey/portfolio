@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ProjectGridChild from './projectGridChild';
 import tfs from './img/profile/trackandfieldscorebook.png';
+import arrm from './img/profile/appratingsandreviewmonitor.png';
 import ftl from './img/profile/freeTypingLessons.png';
 import fm from './img/profile/farmermath.png';
 import st from './img/profile/squadTiming.png';
@@ -55,6 +56,12 @@ export default class Projects extends React.Component {
   		super(props);
     	this.state = {
         projects: [
+          {title: 'App Ratings and Review Monitor',
+           link: 'https://www.squadtiming.com/appratingsandreviewmonitor/',
+           imgSrc: arrm,
+           summary: 'A tool for developers to monitor user feedback.',
+           tech: ['React Native', 'Expo', 'Facebook\'s Audience Network', 'Apple\'s REST APIs', 'XML & JSON Parsing']
+          }, 
           {title: 'Track and Field Scorebook',
            link: 'https://www.squadtiming.com/trackandfieldscorebook/',
            imgSrc: tfs,
@@ -105,7 +112,7 @@ export default class Projects extends React.Component {
             title: 'Typing Home & sluap Websites',
             link: '',
             imgSrc: th,
-            summary: 'These sites were used for myself and my students, but are now offline due to hosting costs.',
+            summary: 'Former projects used for myself and my students, but are now archived.',
             tech: ['PHP, Node.js', 'MySQL', 'CentOS Unmanaged VPS Setup', 'MySQL Workbench', 'SSH and FTP', 'cPanel', 'Wordpress']
           }
         ]

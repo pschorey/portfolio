@@ -110,7 +110,7 @@ export default class AboutMe extends React.Component {
     	return (
 			<AboutContainer id='about'>
           <Name>Paul Schorey</Name>
-          <Statement>I'm a middle school Computer Applications teacher who likes learning new technologies and building apps and websites with each new tech I tinker with.  My other interests are playing guitar, putzing around the yard, and coaching track and football.</Statement>
+          <Statement>I'm a middle school Computer Applications teacher who likes solving problems by making creative websites and mobile apps.  My other hobbies are playing guitar, gardening, enjoying the outdoors, and coaching.</Statement>
           <Header>About Time...</Header>
           <AboutTimeGridHeaderContainer>
             <AboutTimeGridHeader>
