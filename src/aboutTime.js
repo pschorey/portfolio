@@ -137,7 +137,7 @@ export default class AboutTime extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-    		dateArray : returnYearsMonthsDays(this.props.startDate)
+    		dateArray : returnYearsMonthsDays(this.props.startDate, this.props.endDate)
     	};
   	}
 

@@ -19,7 +19,8 @@ const MyDiv = styled.div`
   flex-direction:column;
   justify-content:center;
   padding:15px;
-  background-image: linear-gradient(to top, rgba(0,0,0,.9), rgba(50,50,50,.95));
+  /*background-image: linear-gradient(to top, rgba(0,0,0,.9), rgba(50,50,50,.95));*/
+  background-image: linear-gradient(to top, rgba(203,105,105, 1), rgba(203,105,105, .5));
 
   @media(max-width : 523px) {
     height:auto;

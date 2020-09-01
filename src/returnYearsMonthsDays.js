@@ -1,10 +1,14 @@
-export default function returnYearsMonthsDays (monthDayYearStr) {
+export default function returnYearsMonthsDays (monthDayYearStr, endDate) { 
     let then = new Date(monthDayYearStr);
     let thenYears = then.getFullYear();
     let thenMonths = then.getMonth() + 1;
     let thenDays = then.getDate();
 
     let today = new Date();
+    if (endDate) {
+      today = new Date(endDate)
+    }
+
     let todayYears = today.getFullYear();
     let todayMonths = today.getMonth() + 1;
     let todayDays = today.getDate();
@@ -19,14 +23,24 @@ export default function returnYearsMonthsDays (monthDayYearStr) {
       //rounds the month down, (days less in next month)
       else if (netMonths >= 1 && netDays < 0) {
         return netMonths - 1;
-      } else {
+      }
+       else {
         return netMonths;
       }
     }
     let monthsDiff = getMonthsDiff(thenMonths, todayMonths, thenDays, todayDays);
 
     let getYearsDiff = (thenYears, todayYears, monthsDiff, thenDays, todayDays) => {
+      if (monthsDiff === 0 && todayDays <= thenDays) {
+        return todayYears - thenYears
+      } else if (monthsDiff >= 1) {
+        return todayYears - thenYears
+      } else {
+        return todayYears - thenYears - 1
+      }
+      /*
       return (monthsDiff === 0 && todayDays >= thenDays) ? todayYears - thenYears : monthsDiff >= 1 ? todayYears - thenYears : todayYears - thenYears - 1;
+      */
     }
     let yearsDiff = getYearsDiff(thenYears, todayYears, monthsDiff, thenDays, todayDays);
 

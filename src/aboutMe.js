@@ -94,14 +94,14 @@ export default class AboutMe extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-        aboutTime : [
-          {title: 'Husband', startDate: 'March 12, 2005', tip:'But it feels like forever...'},
-          {title: 'Father', startDate: 'April 21, 2014', tip:'Wish I could keep you little'},
-          {title: 'Teacher', startDate: 'August 14, 2009', tip:'Thousands of minds molded like clay.'},
-          {title: 'Web Developer', startDate: 'January 15, 2015', tip:'What did I do to make Google mad?'},
-          {title: 'App Developer', startDate: 'August 31, 2018', tip:"Please let my next app go viral like Flappy Bird"},
-          {title: 'Track Coach', startDate: 'February 12, 2004', tip:"Cold, wind, rain, Indiana spring while in charge of 120ish kids. Sign me up!"},
-          {title: 'Football Coach', startDate: 'August 7, 2016', tip:"Some years we're the hammer, others the nail.  We haven't tried being the board yet."}
+        aboutTime : [ 
+          {title: 'Husband', startDate: 'March 12, 2005', endDate:false, tip:'But it feels like forever...'},
+          {title: 'Father', startDate: 'April 21, 2014', endDate:false, tip:'Wish I could keep you little'},
+          {title: 'Teacher', startDate: 'August 14, 2009', endDate:false, tip:'Thousands of minds molded like clay.'},
+          {title: 'Web Developer', startDate: 'January 15, 2015', endDate:false, tip:'What did I do to make Google mad?'},
+          {title: 'App Developer', startDate: 'August 31, 2018', endDate:false, tip:"Please let my next app go viral like Flappy Bird"},
+          {title: 'Track Coach', startDate: 'February 12, 2004', endDate: "May 30, 2020", tip:"Cold, wind, rain, Indiana spring while in charge of 120ish kids. Sign me up!"},
+          {title: 'Football Coach', startDate: 'August 7, 2016', endDate:false, tip:"Some years we're the hammer, others the nail.  We haven't tried being the board yet."}
         ]
     	};
   	}
@@ -120,7 +120,7 @@ export default class AboutMe extends React.Component {
             </AboutTimeGridHeader>
           </AboutTimeGridHeaderContainer>
             { this.state.aboutTime.map((aboutTime, index) => 
-               <AboutTime key={index} title={aboutTime.title} startDate={aboutTime.startDate} tip={aboutTime.tip}/>
+               <AboutTime key={index} title={aboutTime.title} startDate={aboutTime.startDate} endDate={aboutTime.endDate} tip={aboutTime.tip}/>
               )
             }
           {/*<Quote>"There is a time for everything, and a season for every activity under heaven..." <span> Ecc. 3:1</span></Quote>*/}
