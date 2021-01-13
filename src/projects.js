@@ -72,7 +72,7 @@ export default class Projects extends React.Component {
            link: 'https://www.squadtiming.com/freetypinglessons/',
            imgSrc: ftl,
            summary: 'An app and website that is used by 1000\'s of students to learn touch typing.',
-           tech: ['Apache Cordova', 'JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services Hosting', 'Unity Ads Implementation', 'App Store Optimization']
+           tech: ['Apache Cordova', 'JavaScript, jQuery, CSS3, HTML5', 'Amazon Web Services Hosting', 'Multiple Ad Networks Mediated', 'App Store Optimization']
           },
           {title: 'Farmer Math',
            link: 'https://www.squadtiming.com/farmermath/',
@@ -122,7 +122,7 @@ export default class Projects extends React.Component {
   render() {
     	return (
 			<MyDiv id="projects">
-        <ProjectTitle className="project-title">Stuff I've made</ProjectTitle>
+        <ProjectTitle className="project-title">My Creations...</ProjectTitle>
         <ProjectGrid>
           { this.state.projects.map((project, index) => 
                <ProjectGridChild key={index} title={project.title} summary={project.summary} link={project.link} imgSrc={project.imgSrc} tech={project.tech}/>

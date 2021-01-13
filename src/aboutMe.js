@@ -77,6 +77,7 @@ const DaysLabel = styled.div`
     background-color:rgba(255,255,255,.1);
   }
 `
+/*
 const Quote = styled.p`
   margin-left:10%;
   margin-right:10%;
@@ -84,6 +85,7 @@ const Quote = styled.p`
   font-size:1.3em;
   color:rgba(0,0,0,.5);
 `
+*/
 const Statement = styled.p`
   margin: 30px 10% 30px 10%;
   font-size:1.7em;
@@ -110,7 +112,7 @@ export default class AboutMe extends React.Component {
     	return (
 			<AboutContainer id='about'>
           <Name>Paul Schorey</Name>
-          <Statement>I'm a middle school Computer Applications teacher who likes solving problems by making creative websites and mobile apps.  My other hobbies are playing guitar, gardening, enjoying the outdoors, and coaching.</Statement>
+          <Statement>I'm a Computer Applications teacher who likes helping people and solving problems through creating websites and mobile apps.  My other hobbies are playing guitar, gardening, enjoying the outdoors, and coaching.</Statement>
           <Header>About Time...</Header>
           <AboutTimeGridHeaderContainer>
             <AboutTimeGridHeader>

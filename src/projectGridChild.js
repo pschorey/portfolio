@@ -27,14 +27,14 @@ const ProjectChild = styled.div`
   	cursor: pointer;
   }
 `
-
+/*
 const Title = styled.div`
 	top:0;
 	left:0;
 	position:absolute;
 	z-index:3;
 `
-
+*/
 const Img = styled.img`
 	position:absolute;
 	width:100%;

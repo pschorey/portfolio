@@ -110,7 +110,7 @@ const DaysNum = styled.div`
   grid-area: daysNum;
   ${numbersGridFormat}
 `
-
+/*
 const YearsLabel = styled.div`
   grid-area: yearsLabel;
   color: ${labelColor};
@@ -131,6 +131,7 @@ const DaysLabel = styled.div`
   align-self:start;
   font-size: 20px;
 `
+*/
 
 
 export default class AboutTime extends React.Component {

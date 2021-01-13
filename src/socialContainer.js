@@ -6,7 +6,7 @@ import apple from './img/icons/apple.svg';
 import github from './img/icons/github.svg';
 import linkedin from './img/icons/linkedin.svg';
 import stack from './img/icons/stack-overflow.svg';
-import twitter from './img/icons/twitter.svg';
+//import twitter from './img/icons/twitter.svg';
 import SocialLink from './socialLink';
 
 const MyDiv = styled.div`
@@ -68,8 +68,8 @@ export default class SocialContainer extends React.Component {
          	{siteImg:stack, link:'https://stackoverflow.com/users/7512559/paul-schorey'},
          	{siteImg:apple, link: 'https://apps.apple.com/us/developer/tamber-schorey/id1434244996'},
          	{siteImg:android, link: 'https://play.google.com/store/apps/developer?id=Paul+Schorey'},
-         	{siteImg:linkedin, link: 'www.linkedin.com/in/paul-schorey'},
-         	{siteImg:twitter, link: 'https://twitter.com/PaulSchorey'}
+         	{siteImg:linkedin, link: 'www.linkedin.com/in/paul-schorey'}
+         	/*{siteImg:twitter, link: 'https://twitter.com/PaulSchorey'}*/
          ]
     	};
 

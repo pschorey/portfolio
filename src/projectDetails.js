@@ -120,7 +120,7 @@ export default class ProjectDetails extends React.Component {
                       }}>
                       <Title>{this.props.title}</Title>
                       <Summary>{this.props.summary}</Summary>
-                {this.props.link != '' && <Link><a href={this.props.link} style={{display: `${this.state.display}`}}>View Project</a></Link>}
+                {this.props.link !== '' && <Link><a href={this.props.link} style={{display: `${this.state.display}`}}>View Project</a></Link>}
                 <ul>     
                 { this.props.tech.map((skill, index) => 
                      <li key={index} >{skill}</li>
