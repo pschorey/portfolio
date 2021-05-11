@@ -4,6 +4,7 @@ import React from 'react';
 import Nav from './nav';
 import AboutMe from './aboutMe';
 import Projects from './projects';
+import Resume from './resume';
 import SocialContainer from './socialContainer';
 import GlobalFonts from './fonts/fonts.js'
 
@@ -17,6 +18,7 @@ class App extends React.Component {
         <Nav />
         <AboutMe />
         <Projects />
+        {/*<Resume />*/}
         <SocialContainer />
       </div>
     );

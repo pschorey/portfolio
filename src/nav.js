@@ -42,7 +42,7 @@ export default class Nav extends React.Component {
 	constructor(props) {
   		super(props);
     	this.state = {
-    		linkArray: [/*'Home', */'About', 'Projects', 'Contact'],
+    		linkArray: [/*'Home', */'About', 'Projects', /*'Resume',*/ 'Contact'],
     		width: 371,
     	};
 		this.updateDimensions = this.updateDimensions.bind(this);
